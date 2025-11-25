@@ -262,13 +262,21 @@ app.get('/', (c) => {
             z-index: 1000;
             background: linear-gradient(180deg, #4A2511 0%, #3E2723 100%);
             backdrop-filter: blur(10px);
-            padding: 1.5rem 5%;
+            padding: 1rem 3%;
             transition: all 0.3s ease;
-            border-bottom: 4px solid #DAA520;
-            box-shadow: 0 4px 0 #000, 0 8px 20px rgba(0,0,0,0.5);
-            background-image: 
+            border-bottom: 3px solid #DAA520;
+            box-shadow: 0 2px 0 #000, 0 4px 15px rgba(0,0,0,0.5);
+            background-image:
               repeating-linear-gradient(90deg, transparent 0px, rgba(0,0,0,0.1) 1px, transparent 2px, transparent 100px),
               linear-gradient(180deg, rgba(255,255,255,0.05) 0%, transparent 50%);
+          }
+
+          @media (min-width: 768px) {
+            nav {
+              padding: 1.5rem 5%;
+              border-bottom: 4px solid #DAA520;
+              box-shadow: 0 4px 0 #000, 0 8px 20px rgba(0,0,0,0.5);
+            }
           }
           
           nav.scrolled {
@@ -286,16 +294,25 @@ app.get('/', (c) => {
           }
           
           .logo {
-            font-size: 2.5rem;
+            font-size: 1.5rem;
             font-weight: 900;
             color: #DAA520;
             text-decoration: none;
             display: flex;
             align-items: center;
-            gap: 0.5rem;
+            gap: 0.3rem;
             font-family: 'Rye', serif;
-            text-shadow: 3px 3px 0 #000, 5px 5px 10px rgba(0,0,0,0.5);
-            letter-spacing: 3px;
+            text-shadow: 2px 2px 0 #000, 3px 3px 8px rgba(0,0,0,0.5);
+            letter-spacing: 1px;
+          }
+
+          @media (min-width: 768px) {
+            .logo {
+              font-size: 2.5rem;
+              gap: 0.5rem;
+              letter-spacing: 3px;
+              text-shadow: 3px 3px 0 #000, 5px 5px 10px rgba(0,0,0,0.5);
+            }
           }
           
           .logo i {
@@ -954,14 +971,28 @@ app.get('/', (c) => {
           
           /* Mobile Menu */
           .mobile-menu-btn {
-            display: none;
+            display: block;
             background: none;
-            border: none;
-            color: white;
+            border: 2px solid #DAA520;
+            color: #DAA520;
             font-size: 1.5rem;
             cursor: pointer;
+            padding: 0.5rem 0.8rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
           }
-          
+
+          .mobile-menu-btn:hover {
+            background: #DAA520;
+            color: #2a1810;
+          }
+
+          @media (min-width: 769px) {
+            .mobile-menu-btn {
+              display: none;
+            }
+          }
+
           @media (max-width: 768px) {
             .nav-links {
               display: none;
@@ -970,16 +1001,29 @@ app.get('/', (c) => {
               top: 100%;
               left: 0;
               right: 0;
-              background: rgba(0, 0, 0, 0.98);
-              padding: 2rem;
+              background: linear-gradient(180deg, #3E2723 0%, #2a1810 100%);
+              padding: 1.5rem 1rem;
+              gap: 0.5rem;
+              border-bottom: 3px solid #DAA520;
+              box-shadow: 0 8px 20px rgba(0,0,0,0.7);
             }
-            
+
+            .nav-links a {
+              padding: 1rem;
+              border-bottom: 1px solid rgba(218, 165, 32, 0.2);
+              text-align: center;
+            }
+
+            .nav-links a::before {
+              display: none;
+            }
+
+            .nav-links a::after {
+              display: none;
+            }
+
             .nav-links.active {
               display: flex;
-            }
-            
-            .mobile-menu-btn {
-              display: block;
             }
             
             .services-grid,
